@@ -31,9 +31,6 @@ class ProdutoDetalhado extends React.Component {
     const idQuantidade = `quantidade:${product[0].id}`;
     this.salvarQuantidade(idQuantidade);
 
-    // console.log(product[0].thumbnail_id);
-    // this.salvarQuantidade(product[0].thumbnail_id);
-
     const produto = product;
     const produtos = recuperaProdutos();
     if (produtos !== null) {
@@ -92,10 +89,11 @@ class ProdutoDetalhado extends React.Component {
       <div>
         {loading ? <p>Carregando...</p>
           : product.map((element, index) => (
-            <div key={ index }>
+            <div className="ProductDetails" key={ index }>
               <p data-testid="product-detail-name">{ element.title }</p>
               <p data-testid="product-detail-price">{ element.price }</p>
               <img
+                className="ProductDetailsImg"
                 src={ element.thumbnail }
                 alt={ element.title }
                 data-testid="product-detail-image"
